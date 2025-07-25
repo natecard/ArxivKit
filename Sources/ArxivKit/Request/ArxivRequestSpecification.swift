@@ -98,7 +98,7 @@ public struct ArxivRequestSpecification: Codable {
     
     
     /// Specifies sorting criteria for  articles returned by API calls.
-    public struct SortingCriterion: Codable, CustomStringConvertible {
+    public struct SortingCriterion: Codable, CustomStringConvertible, Sendable {
         
         let rawValue: String
         
@@ -107,13 +107,13 @@ public struct ArxivRequestSpecification: Codable {
         }
         
         /// Sort returned articles by relevance.
-        public static var relevance = SortingCriterion(relevanceValue)
+        public static let relevance = SortingCriterion(relevanceValue)
         
         /// Sort returned articles by submission date of the most recent version.
-        public static var lastUpdateDate = SortingCriterion(lastUpdatedDateValue)
+        public static let lastUpdateDate = SortingCriterion(lastUpdatedDateValue)
         
         /// Sort returned articles by submission date of the first version.
-        public static var submissionDate = SortingCriterion(submittedDateValue)
+        public static let submissionDate = SortingCriterion(submittedDateValue)
         
         public var description: String {
             switch rawValue {
@@ -130,7 +130,7 @@ public struct ArxivRequestSpecification: Codable {
     }
     
     /// Specifies sorting order for articles returned by API calls.
-    public struct SortingOrder: Codable, CustomStringConvertible {
+    public struct SortingOrder: Codable, CustomStringConvertible, Sendable {
         
         let rawValue: String
         
@@ -139,10 +139,10 @@ public struct ArxivRequestSpecification: Codable {
         }
         
         /// Sort returned articles in descending order.
-        public static var descending = SortingOrder(descendingValue)
+        public static let descending = SortingOrder(descendingValue)
         
         /// Sort returned articles in ascending order.
-        public static var ascending = SortingOrder(ascendingValue)
+        public static let ascending = SortingOrder(ascendingValue)
         
         public var description: String {
             return rawValue
