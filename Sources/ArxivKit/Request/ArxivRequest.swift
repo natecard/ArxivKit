@@ -4,7 +4,7 @@ import Foundation
 /**
  A type providing specification of aXiv API request.
  */
-public protocol ArxivRequest {
+public protocol ArxivRequest: Sendable {
     
     /**
      Returns full specification of the request.

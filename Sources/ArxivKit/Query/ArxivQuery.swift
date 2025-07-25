@@ -22,7 +22,7 @@ public struct ArxivQuery: Codable {
      
      To search given term in any field, use `ArxivQuery.Field.any`.
      */
-    public struct Field: Codable {
+    public struct Field: Codable, Sendable {
         
         let rawValue: Value
         
@@ -31,25 +31,25 @@ public struct ArxivQuery: Codable {
         }
         
         /// Restricts search to title.
-        public static var title = Field(.title)
+        public static let title = Field(.title)
         
         /// Restricts search to  abstract (summary).
-        public static var abstract = Field(.abstract)
+        public static let abstract = Field(.abstract)
         
         /// Restricts search to  authors' names.
-        public static var authors = Field(.authors)
+        public static let authors = Field(.authors)
         
         /// Restricts search to  comment.
-        public static var comment = Field(.comment)
+        public static let comment = Field(.comment)
         
         /// Restricts search to  journal reference.
-        public static var journalReference = Field(.journalReference)
+        public static let journalReference = Field(.journalReference)
         
         /// Restricts search to  report number.
-        public static var reportNumber = Field(.reportNumber)
+        public static let reportNumber = Field(.reportNumber)
         
         /// Used for searching inside any of the above fields.
-        public static var any = Field(.any)
+        public static let any = Field(.any)
     }
 }
 
